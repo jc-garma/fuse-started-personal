@@ -1,0 +1,30 @@
+<!--<span>{{cursos}}</span>-->
+<br>
+<table class="table table-striped">
+    <thead class="table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Slug</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Duration</th>
+        <th>TotalSteps</th>
+        <th>UpdateAt</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let curso of cursos">
+        <td>{{curso.id}}</td>
+        <td>{{curso.title}}</td>
+        <td>{{curso.slug}}</td>
+        <td>{{curso.description}}</td>
+        <td>{{curso.category}}</td>
+        <td>{{curso.duration}}</td>
+        <td>{{curso.totalSteps}}</td>
+        <td>{{curso.updatedAt}}</td>
+    </tr>
+    </tbody>
+</table>
+
+
