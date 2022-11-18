@@ -1,30 +1,40 @@
 <!--<span>{{cursos}}</span>-->
-<br>
-<table class="table table-striped">
-    <thead class="table-dark">
-    <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Slug</th>
-        <th>Description</th>
-        <th>Category</th>
-        <th>Duration</th>
-        <th>TotalSteps</th>
-        <th>UpdateAt</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let curso of cursos">
-        <td>{{curso.id}}</td>
-        <td>{{curso.title}}</td>
-        <td>{{curso.slug}}</td>
-        <td>{{curso.description}}</td>
-        <td>{{curso.category}}</td>
-        <td>{{curso.duration}}</td>
-        <td>{{curso.totalSteps}}</td>
-        <td>{{curso.updatedAt}}</td>
-    </tr>
-    </tbody>
-</table>
+<div *ngIf="estadoTablaA==false">
+    <button mat-raised-button color="primary" (click)="getAlumnos()">Obtener Listado de Alumnos</button>
+</div>
+<div *ngIf="estadoTablaA==true">
+    <button mat-raised-button color="primary" (click)="getAlumnos()">Cerrar Tabla</button>
+</div>
 
-
+<div *ngIf="estadoTablaA==true">
+    <h2>Lista de alumnos</h2>
+    <table class="table table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th>Enrolled</th>
+            <th>Course</th>
+            <th>Acciones</th>
+            <th><button (click)= "registrarAlumno()" class="btn btn-info">Registrar</button></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let alumno of alumnos">
+            <td>{{alumno.id}}</td>
+            <td>{{alumno.name}}</td>
+            <td>{{alumno.lastname}}</td>
+            <td>{{alumno.age}}</td>
+            <td>{{alumno.enrolled}}</td>
+            <td>{{alumno.course}}</td>
+            <td>
+                <button (click)= "actualizarAlumno(alumno.id)" class="btn btn-info">Editar</button>
+                <button (click)= "verDetallesAlumno(alumno.id)" class="btn btn-primary" style="margin-left : 10px;">Detalles</button>
+                <button (click)= "eliminarAlumno(alumno.id)" class="btn btn-danger" style="margin-left : 10px;">Eliminar</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

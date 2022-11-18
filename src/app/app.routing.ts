@@ -104,5 +104,45 @@ export const appRoutes: Route[] = [
         children   : [
             {path: 'academia', loadChildren: () => import('app/modules/admin/academia/academia.module').then(m => m.AcademiaModule)},
         ]
-    }
+    },
+
+    // Admin routes
+    {
+        path       : '',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        component  : LayoutComponent,
+        resolve    : {
+            initialData: InitialDataResolver,
+        },
+        children   : [
+            {path: 'alumno', loadChildren: () => import('app/modules/admin/alumno/alumno.module').then(m => m.AlumnoModule)},
+        ]
+    },
+    // Admin routes
+    {
+        path       : '',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        component  : LayoutComponent,
+        resolve    : {
+            initialData: InitialDataResolver,
+        },
+        children   : [
+            {path: 'detalles-alumno', loadChildren: () => import('app/modules/admin/alumno/detalles-alumno/detalles-alumno.module').then(m => m.DetallesAlumnoModule)},
+        ]
+    },
+    // Admin routes
+    {
+        path       : '',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        component  : LayoutComponent,
+        resolve    : {
+            initialData: InitialDataResolver,
+        },
+        children   : [
+            {path: 'registrar-alumno', loadChildren: () => import('app/modules/admin/alumno/registrar-alumno/registar-alumno.module').then(m => m.RegistrarAlumnoModule)},
+        ]
+    },
 ];

@@ -1,0 +1,65 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registrar alumno</h3>
+    <form (ngSubmit)="onSubmit()" #alumnoForm = "ngForm">
+        <div class="form-group">
+            <label>Nombre: </label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="alumno.name" name="name" required minlength="3"
+                   maxlength="25" placeholder="Introduzca su nombre" #nombre="ngModel">
+            <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre?.errors?.['required']">
+                    Por favor, introduzca su nombre
+                </div>
+                <div *ngIf="nombre?.errors?.['minlength']">
+                    El nombre tiene que contener como minimo 3 caracteres
+                </div>
+                <div *nIf="nombre?.errors?.['maxlength']">
+                    El nombre tiene que tener como maximo 25 caracteres
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Apellido : </label>
+            <input type="text" class="form-control" id="lastname" [(ngModel)]="alumno.lastname" name="lastname" required
+                   minlength="3"
+                   maxlength="25" placeholder="Introduzca su apellido" #lastname="ngModel">
+            <div class="alert alert-danger" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+                <div *ngIf="lastname?.errors?.['required']">
+                    Por favor, introduzca su apellido
+                </div>
+                <div *ngIf="lastname?.errors?.['minlength']">
+                    El apellido tiene que contener como minimo 3 caracteres
+                </div>
+                <div *nIf="lastname?.errors?.['maxlength']">
+                    El apellido tiene que tener como maximo 25 caracteres
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Edad : </label>
+            <input type="text" class="form-control" id="age" [(ngModel)]="alumno.age" name="age" required
+                   placeholder="Introduzca su edad" #age="ngModel">
+        </div>
+
+        <div class="form-group">
+            <label>Curso : </label>
+            <input type="text" class="form-control" id="course" [(ngModel)]="alumno.course" name="course" required
+                   minlength="3"
+                   maxlength="25" placeholder="Introduzca el curso en el que esta inscrito" #course="ngModel">
+            <div class="alert alert-danger" *ngIf="course.invalid && (course.dirty || course.touched)">
+                <div *ngIf="course?.errors?.['required']">
+                    Por favor, introduzca su curso
+                </div>
+                <div *ngIf="course?.errors?.['minlength']">
+                    El curso tiene que contener como minimo 3 caracteres
+                </div>
+                <div *nIf="course?.errors?.['maxlength']">
+                    El curso tiene que tener como maximo 25 caracteres
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success" type="submit" [disabled]= "!alumnoForm.form.valid" style="background-color: #94A3B8">Guardar</button>
+    </form>
+</div>
+

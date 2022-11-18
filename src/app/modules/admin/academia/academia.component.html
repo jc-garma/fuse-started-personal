@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<!--<mat-card class="example-card">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Shiba Inu</mat-card-title>
@@ -16,4 +16,43 @@
         <button mat-button>LIKE</button>
         <button mat-button>SHARE</button>
     </mat-card-actions>
-</mat-card>
+</mat-card>-->
+
+<div *ngIf="estadoTablaC==false">
+    <button mat-raised-button color="primary" (click)="getCursos()" style="align-content: center">Obtener Listado de Cursos</button>
+</div>
+
+<div *ngIf="estadoTablaC==true">
+    <button mat-raised-button color="primary" (click)="getCursos()" style="align-content: center">Cerrar Tabla</button>
+    <br>
+</div>
+<br>
+<div *ngIf="estadoTablaC==true">
+    <h2>Lista de cursos</h2>
+    <table class="table table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Slug</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Duration</th>
+            <th>TotalSteps</th>
+            <th>UpdateAt</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let curso of cursos">
+            <td>{{curso.id}}</td>
+            <td>{{curso.title}}</td>
+            <td>{{curso.slug}}</td>
+            <td>{{curso.description}}</td>
+            <td>{{curso.category}}</td>
+            <td>{{curso.duration}}</td>
+            <td>{{curso.totalSteps}}</td>
+            <td>{{curso.updatedAt}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

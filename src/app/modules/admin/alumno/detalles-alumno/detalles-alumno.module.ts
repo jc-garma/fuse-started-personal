@@ -1,25 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { CursoComponent} from './curso.component';
 import {NgForOf, NgIf} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import { DetallesAlumnoComponent } from './detalles-alumno.component';
 
 const cursoRoutes: Route[] = [
     {
-        path     : '',
-        component: CursoComponent
+        path     : ':id',
+        component: DetallesAlumnoComponent
     }
 ];
 
 @NgModule({
     declarations: [
-        CursoComponent
+        DetallesAlumnoComponent
     ],
     imports: [
         RouterModule.forChild(cursoRoutes),
         NgForOf,
-        NgIf
+        NgIf,
+        FormsModule,
     ]
 })
-export class CursoModule
+export class DetallesAlumnoModule
 {
 }
